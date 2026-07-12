@@ -5,8 +5,6 @@ class ClaudeProfiles < Formula
   sha256 "9140cc46932705fdb2ff10152cf25ea113b6945aed45e2fe48aee1cc5be8f371"
   license "MIT"
 
-  depends_on "python3"
-
   def install
     bin.install "claude-profiles"
     (bash_completion/"claude-profiles").write Utils.safe_popen_read(bin/"claude-profiles", "--completion-bash")
@@ -14,7 +12,7 @@ class ClaudeProfiles < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/claude-profiles help 2>&1", 0)
+    assert_match "Commands", shell_output("#{bin}/claude-profiles help 2>&1", 0)
     assert_match "_claude_profiles_complete", shell_output("#{bin}/claude-profiles --completion-bash")
     assert_match "compdef _claude_profiles", shell_output("#{bin}/claude-profiles --completion-zsh")
   end
