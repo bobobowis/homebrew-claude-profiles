@@ -9,15 +9,8 @@ class ClaudeProfiles < Formula
 
   def install
     bin.install "claude-profiles"
-
-    # Shell completions
-    bash_completion.install_symlink bin/"claude-profiles" => "claude-profiles"
-    generate_completions_from_executable(bin/"claude-profiles", "--completion-bash",
-                                         shell_parameter_format: :none,
-                                         shells: [:bash])
-    generate_completions_from_executable(bin/"claude-profiles", "--completion-zsh",
-                                         shell_parameter_format: :none,
-                                         shells: [:zsh])
+    (bash_completion/"claude-profiles").write Utils.safe_popen_read(bin/"claude-profiles", "--completion-bash")
+    (zsh_completion/"_claude-profiles").write Utils.safe_popen_read(bin/"claude-profiles", "--completion-zsh")
   end
 
   test do
