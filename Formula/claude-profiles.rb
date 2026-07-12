@@ -2,7 +2,7 @@ class ClaudeProfiles < Formula
   desc "Switch Claude Code agent context — skills, instructions, MCP servers — per project"
   homepage "https://github.com/bobobowis/claude-profiles"
   url "https://github.com/bobobowis/claude-profiles/archive/refs/tags/v0.5.tar.gz"
-  sha256 "9140cc46932705fdb2ff10152cf25ea113b6945aed45e2fe48aee1cc5be8f371"
+  sha256 "66543e81b8a7f1f137b55fb3df79107d969d8434aa2894df02af205953480601"
   license "MIT"
 
   def install
